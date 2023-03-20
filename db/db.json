@@ -77,5 +77,14 @@
       "tipo": "Finalizado"
     }
   ],
-  "burgers": []
+  "burgers": [
+    {
+      "{\"nome\":\"Levy Bezerra\",\"carne\":\"Maminha\",\"pao\":\"Integral\",\"opcionais\":[\"Bacon\",\"Salame\",\"Tomate\",\"Cheddar\"],\"status\":\"Solicitado\"}": "",
+      "id": 1
+    },
+    {
+      "{\"nome\":\"Levy Bezerra Holanda\",\"carne\":\"Picanha\",\"pao\":\"3 Queijos\",\"opcionais\":[\"Bacon\",\"Pepino\",\"Cebola roxa\",\"Cheddar\",\"Tomate\"],\"status\":\"Solicitado\"}": "",
+      "id": 2
+    }
+  ]
 }

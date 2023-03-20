@@ -2,15 +2,21 @@
   <div>
     <p>Componente de Mensagem</p>
     <div>
-      <form id="burger-form">
+      <form id="burger-form" @submit="createBurger">
         <div class="input-container">
           <label for="name">Nome do cliente:</label>
-          <input type="text" id="name" v-model="name" placeholder="Digite o seu nome">
+          <input
+            type="text"
+            id="name"
+            v-model="nome"
+            placeholder="Digite o seu nome"
+            required
+          >
         </div>
 
         <div class="input-container">
           <label for="pao">Escolha o pão:</label>
-          <select name="pao" id="pao" v-model="pao" >
+          <select name="pao" id="pao" v-model="pao" required>
             <option value="">Selecione o tipo de pão</option>
             <option v-for="pao in paes" :value="pao.tipo" :key="pao.id">
               {{ pao.tipo }}
@@ -20,7 +26,7 @@
 
         <div class="input-container">
           <label for="carne">Escolha o tipo de carne:</label>
-          <select name="carne" id="carne" v-model="carne">
+          <select name="carne" id="carne" v-model="carne" required>
             <option v-for="carne in carnes" :key="carne.id" :value="carne.tipo">
               {{ carne.tipo }}
             </option>
@@ -72,7 +78,23 @@ export default {
       this.paes = data.paes
       this.carnes = data.carnes
       this.opcionaisData = data.opcionais
+    },
+    async createBurger(e) {
+      e.preventDefault()
+      const data = {
+        nome: this.nome,
+        carne: this.carne,
+        pao: this.pao,
+        opcionais: Array.from(this.opcionais),
+        status: "Solicitado"
+      }
       console.log(data);
+      const dataJson = JSON.stringify(data);
+      await axios.post('http://localhost:3000/burgers', dataJson);
+      this.nome = "";
+      this.carne = "";
+      this.opcionais = ""
+      this.pao = "";
     }
   },
   mounted() {
