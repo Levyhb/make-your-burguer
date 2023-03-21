@@ -79,11 +79,29 @@
   ],
   "burgers": [
     {
-      "{\"nome\":\"Levy Bezerra\",\"carne\":\"Maminha\",\"pao\":\"Integral\",\"opcionais\":[\"Bacon\",\"Salame\",\"Tomate\",\"Cheddar\"],\"status\":\"Solicitado\"}": "",
+      "nome": "Levy Bezerra Holanda",
+      "carne": "Maminha",
+      "pao": "Italiano Branco",
+      "opcionais": [
+        "Bacon",
+        "Salame",
+        "Cheddar",
+        "Tomate",
+        "Pepino"
+      ],
+      "status": "Solicitado",
       "id": 1
     },
     {
-      "{\"nome\":\"Levy Bezerra Holanda\",\"carne\":\"Picanha\",\"pao\":\"3 Queijos\",\"opcionais\":[\"Bacon\",\"Pepino\",\"Cebola roxa\",\"Cheddar\",\"Tomate\"],\"status\":\"Solicitado\"}": "",
+      "nome": "Aloha",
+      "carne": "Picanha",
+      "pao": "Italiano Branco",
+      "opcionais": [
+        "Bacon",
+        "Salame",
+        "Cheddar"
+      ],
+      "status": "Solicitado",
       "id": 2
     }
   ]

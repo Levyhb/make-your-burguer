@@ -9,16 +9,17 @@
         <div class="">Opcionais:</div>
         <div class="">Ações:</div>
       </div>
-      <div id="burger-table-rows">
+      <div id="burger-table-rows" v-for="burger in burgers" :key="burger.id">
         <div class="burger-table-row">
-          <div class="order-number">1</div>
-          <div>Aloha</div>
-          <div>Pão de Trigo</div>
-          <div>Maminha</div>
+          <div class="order-number">{{ burger.id }}</div>
+          <div>{{ burger.nome }}</div>
+          <div>{{ burger.pao }}</div>
+          <div>{{ burger.carne}}</div>
           <div>
             <ul>
-              <li>Salame</li>
-              <li>Tomate</li>
+              <li v-for="(opcional, index) in burger.opcionais" :key="index">
+                {{ opcional }}
+              </li>
             </ul>
           </div>
           <div>
@@ -31,34 +32,32 @@
         
       </div>
 
-      <div id="burger-table-rows">
-        <div class="burger-table-row">
-          <div class="order-number">1</div>
-          <div>Aloha</div>
-          <div>Pão de Trigo</div>
-          <div>Maminha</div>
-          <div>
-            <ul>
-              <li>Salame</li>
-              <li>Tomate</li>
-            </ul>
-          </div>
-          <div>
-            <select name="status" class="status">
-              <option value="">Selecione</option>
-            </select>
-            <button class="delete-btn">Cancelar</button>
-          </div>
-        </div>
-        
-      </div>
     </div>
   </div>
 </template>
 
 <script>
+  import axios from 'axios';
+
   export default {
-  name: "Dashboard"
+  name: "Dashboard",
+  data () {
+    return {
+      burgers: null,
+      status: []
+    }
+  },
+  methods: {
+    async getBurgers() {
+      const req = await fetch('http://localhost:3000/burgers');
+      const data = await req.json();
+      this.burgers = data;
+      console.log(this.burgers);
+    }
+  },
+  mounted() {
+    this.getBurgers()
+  }
   }
 </script>
 
@@ -72,6 +71,7 @@
   #burger-table-rows,
   .burger-table-row {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
   }
 
@@ -89,7 +89,7 @@
   .burger-table-row {
     width: 100%;
     padding: 12px;
-    border: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
   }
 
   #burger-table-heading .order-id, .burger-table-row .order-number {
