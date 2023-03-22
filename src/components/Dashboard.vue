@@ -23,12 +23,12 @@
             </ul>
           </div>
           <div>
-            <select name="status" class="status">
+            <select name="status" class="status" @change="updateStatus($event, burger.id)">
               <option value="">Selecione</option>
               <option
                 v-for="s in status"
                 :key="s.id"
-                value="s.tipo"
+                :value="s.tipo"
                 :selected="burger.status === s.tipo"
               >
                 {{ s.tipo }}
@@ -68,6 +68,16 @@
     async deleteBurger(id) {
       await axios.delete(`http://localhost:3000/burgers/${id}`);
       this.getOrders();
+    },
+    async updateStatus(event, id) {
+      try {
+        const option = event.target.value;
+        const dataJson = { status: option }
+        await axios.patch(`http://localhost:3000/burgers/${id}`, dataJson)
+        console.log("deu certo");
+      } catch (error) {
+        console.log('deu ruim');
+      }
     }
   },
   mounted() {
