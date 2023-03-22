@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Message :msg="msg" v-show="msg"/>
+    <Message :msg="msg" v-show="msg" :statusMsg="statusMsg"/>
     <div>
       <form id="burger-form" @submit="createBurger">
         <div class="input-container">
@@ -70,7 +70,8 @@ export default {
             carne: null,
             opcionais: [],
             status: "Solicitado",
-            msg: null
+            msg: null,
+            statusMsg: null
         };
     },
     methods: {
@@ -100,6 +101,7 @@ export default {
 
             this.msg = `Pedido Nº ${res.id} Realizado Com sucesso`
             setTimeout(() => this.msg = "", 3000)
+            this.statusMsg = 201;
 
             this.nome = "";
             this.carne = "";

@@ -89,7 +89,7 @@
         "Pepino",
         "Cheddar"
       ],
-      "status": "Finalizado",
+      "status": "Em produção",
       "id": 1
     },
     {
@@ -107,13 +107,12 @@
       "id": 3
     },
     {
-      "nome": "Aloha",
+      "nome": "Bryan",
       "carne": "Alcatra",
       "pao": "Italiano Branco",
       "opcionais": [
-        "Cebola roxa",
-        "Tomate",
-        "Pepino"
+        "Bacon",
+        "Salame"
       ],
       "status": "Solicitado",
       "id": 4

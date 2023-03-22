@@ -1,5 +1,6 @@
 <template>
   <div id="burger-table">
+    <Message :msg="msg" v-show="msg" :statusMsg="statusMsg"/>
     <div>
       <div id="burger-table-heading">
         <div class="order-id">#</div>
@@ -46,13 +47,16 @@
 
 <script>
   import axios from 'axios';
+  import Message from "./Message.vue";
 
   export default {
   name: "Dashboard",
   data () {
     return {
       burgers: null,
-      status: []
+      status: [],
+      msg: null,
+      statusMsg: null
     }
   },
   methods: {
@@ -68,20 +72,24 @@
     async deleteBurger(id) {
       await axios.delete(`http://localhost:3000/burgers/${id}`);
       this.getOrders();
+      this.msg = `Pedido Nº ${id} removido sucesso`
+      setTimeout(() => this.msg = "", 3000)
+      this.statusMsg = 204;
     },
     async updateStatus(event, id) {
-      try {
-        const option = event.target.value;
-        const dataJson = { status: option }
-        await axios.patch(`http://localhost:3000/burgers/${id}`, dataJson)
-        console.log("deu certo");
-      } catch (error) {
-        console.log('deu ruim');
-      }
+      const option = event.target.value;
+      const dataJson = { status: option }
+      const req = await axios.patch(`http://localhost:3000/burgers/${id}`, dataJson)
+      this.msg = `Status do pedido Nº ${id} atualizado para "${req.data.status}"`
+      setTimeout(() => this.msg = "", 3000)
+      this.statusMsg = 200;
     }
   },
   mounted() {
     this.getOrders();
+  },
+  components: {
+    Message
   }
   }
 </script>
