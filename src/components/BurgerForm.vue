@@ -103,7 +103,7 @@ export default {
 
             this.nome = "";
             this.carne = "";
-            this.opcionais = "";
+            this.opcionais = [];
             this.pao = "";
         }
     },
