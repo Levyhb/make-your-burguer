@@ -59,7 +59,6 @@
     async getStatus() {
       const { data } = await axios.get('http://localhost:3000/status');
       this.status = data;
-      console.log(this.status);
     },
     async getOrders() {
       const req = await axios.get('http://localhost:3000/burgers');
