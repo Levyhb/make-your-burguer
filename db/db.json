@@ -81,28 +81,30 @@
     {
       "nome": "Levy Bezerra Holanda",
       "carne": "Maminha",
-      "pao": "Italiano Branco",
+      "pao": "Parmesão e Orégano",
       "opcionais": [
         "Bacon",
         "Salame",
-        "Cheddar",
         "Tomate",
-        "Pepino"
+        "Pepino",
+        "Cheddar"
       ],
       "status": "Solicitado",
       "id": 1
     },
     {
-      "nome": "Aloha",
-      "carne": "Picanha",
-      "pao": "Italiano Branco",
+      "nome": "John wick",
+      "carne": "Veggie burger",
+      "pao": "3 Queijos",
       "opcionais": [
         "Bacon",
         "Salame",
-        "Cheddar"
+        "Tomate",
+        "Cheddar",
+        "Pepino"
       ],
       "status": "Solicitado",
-      "id": 2
+      "id": 3
     }
   ]
 }

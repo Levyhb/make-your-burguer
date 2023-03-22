@@ -34,7 +34,7 @@
                 {{ s.tipo }}
               </option>
             </select>
-            <button class="delete-btn">Cancelar</button>
+            <button class="delete-btn" @click="deleteBurger(burger.id)">Cancelar</button>
           </div>
         </div>
         
@@ -64,10 +64,14 @@
       const req = await axios.get('http://localhost:3000/burgers');
       this.burgers = req.data;
       this.getStatus();
+    },
+    async deleteBurger(id) {
+      await axios.delete(`http://localhost:3000/burgers/${id}`);
+      this.getOrders();
     }
   },
   mounted() {
-    this.getOrders()
+    this.getOrders();
   }
   }
 </script>
