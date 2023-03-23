@@ -46,7 +46,6 @@ export default {
     async getFinishedOrders() {
       const { data } = await axios.get('http://localhost:3000/burgers');
       const burgersFinished = data.filter((e) => e.status === "Finalizado");
-      console.log(burgersFinished);
       this.burgers = burgersFinished;
     }
   },
