@@ -10,7 +10,7 @@
         <div class="">Opcionais:</div>
         <div class="">Ações:</div>
       </div>
-      <div id="burger-table-rows" v-for="burger in burgers" :key="burger.id">
+      <div id="burger-table-rows" v-for="burger in burgers" :key="burger.id"  v-show="burger.status !== 'Finalizado'">
         <div class="burger-table-row">
           <div class="order-number">{{ burger.id }}</div>
           <div>{{ burger.nome }}</div>
@@ -30,7 +30,7 @@
                 v-for="s in status"
                 :key="s.id"
                 :value="s.tipo"
-                :selected="burger.status === s.tipo"
+                :selected="burger.status === s.tipo"               
               >
                 {{ s.tipo }}
               </option>
@@ -82,6 +82,7 @@
       const req = await axios.patch(`http://localhost:3000/burgers/${id}`, dataJson)
       this.msg = `Status do pedido Nº ${id} atualizado para "${req.data.status}"`
       setTimeout(() => this.msg = "", 3000)
+      this.getOrders();
       this.statusMsg = 200;
     }
   },
@@ -94,7 +95,7 @@
   }
 </script>
 
-<style scoped>
+<style>
   #burger-table {
     max-width: 1200px;
     margin: 0 auto;

@@ -16,9 +16,6 @@ export default {
   props: {
     msg: String,
     statusMsg: Number
-  },
-  methods: {
-
   }
 }
 </script>

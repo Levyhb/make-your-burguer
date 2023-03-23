@@ -116,6 +116,45 @@
       ],
       "status": "Solicitado",
       "id": 4
+    },
+    {
+      "nome": "john",
+      "carne": "Picanha",
+      "pao": "3 Queijos",
+      "opcionais": [
+        "Bacon"
+      ],
+      "status": "Finalizado",
+      "id": 5
+    },
+    {
+      "nome": "adilsom",
+      "carne": "Picanha",
+      "pao": "Italiano Branco",
+      "opcionais": [],
+      "status": "Finalizado",
+      "id": 6
+    },
+    {
+      "nome": "Levy Bezerra",
+      "carne": "Picanha",
+      "pao": "Integral",
+      "opcionais": [
+        "Cheddar"
+      ],
+      "status": "Solicitado",
+      "id": 7
+    },
+    {
+      "nome": "Alo",
+      "carne": "Alcatra",
+      "pao": "3 Queijos",
+      "opcionais": [
+        "Bacon",
+        "Salame"
+      ],
+      "status": "Solicitado",
+      "id": 8
     }
   ]
 }
